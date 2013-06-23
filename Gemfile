@@ -48,3 +48,5 @@ gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 
 gem "omniauth"
 gem "omniauth-facebook"
+
+gem 'figaro'
