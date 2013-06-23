@@ -12,7 +12,11 @@
 <p class="alert"><%= alert %></p>
 
 <% if user_signed_in? %>
-    <div>Hello, <%= current_user.facebook_user.name %></div>
+    <% begin %>
+        <div>Hello, <%= current_user.facebook_user.name %></div>
+    <% rescue %>
+        <div>Failed connecting to Facebook API. Try to re-connect.</div>
+    <% end %>
     <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
 <% else %>
     <%= link_to 'Sign in with Facebook', user_omniauth_authorize_path(:facebook) %>
