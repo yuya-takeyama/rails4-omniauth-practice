@@ -6,6 +6,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  def facebook_user
+    if facebook_token
+      user = ::FbGraph::User.me(facebook_token)
+
+      if user
+        user.fetch
+      end
+    end
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
     user = User.where(:facebook_id => auth.uid).first
 
