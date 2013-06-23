@@ -50,3 +50,5 @@ gem "omniauth"
 gem "omniauth-facebook"
 
 gem 'figaro'
+
+gem 'fb_graph'
