@@ -57,3 +57,5 @@ gem "omniauth-facebook"
 gem 'figaro'
 
 gem 'fb_graph'
+
+gem 'rails_12factor', group: :production
