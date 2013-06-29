@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130629122432) do
+ActiveRecord::Schema.define(version: 20130629123521) do
 
   create_table "album_artists", force: true do |t|
     t.integer  "album_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20130629122432) do
     t.datetime "updated_at"
     t.string   "facebook_id"
     t.string   "facebook_token"
+    t.string   "name",                   default: "", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
