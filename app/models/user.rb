@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_many :reviews
+
+  validates_uniqueness_of :email, :case_sensitive => false
+  validates_uniqueness_of :name, :case_sensitive => false
+
   def facebook_user
     if facebook_token
       user = ::FbGraph::User.me(facebook_token)

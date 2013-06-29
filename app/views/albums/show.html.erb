@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @album.title %></h2>
+
+<h3>Artist</h3>
+
+<ul>
+  <% @album.artists.each do |artist| %>
+    <li><%= link_to artist.name, artist %></li>
+  <% end %>
+</ul>
+
+<h3>Reviews</h3>
+
+<% @album.reviews.each do |review| %>
+  <div>
+    <dl>
+      <dt>Name:</dt>
+      <dd><%= review.user.name %></dd>
+      <dt>Point:</dt>
+      <dd><%= review.point %></dd>
+      <dt>Text:</dt>
+      <dd><%= simple_format review.body %></dd>
+    </dl>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
