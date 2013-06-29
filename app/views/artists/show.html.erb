@@ -6,8 +6,8 @@
 </div>
 <div>
   <strong>Albums:</strong>
-  <% @artist.album_artists.each do |album_artist| %>
-    <li><%= link_to album_artist.album.title, album_artist.album %></li>
+  <% @artist.albums.each do |album| %>
+    <li><%= link_to album.title, album %></li>
   <% end %>
 </div>
 
