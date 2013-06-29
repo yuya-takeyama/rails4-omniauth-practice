@@ -1,5 +1,5 @@
 Rails4OmniauthPractice::Application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :path => 'account', :controllers => { :omniauth_callbacks => "account/omniauth_callbacks" }
   root :to => 'home#index'
 
   get "home/index"
