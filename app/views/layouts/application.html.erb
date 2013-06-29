@@ -50,6 +50,22 @@
               <li><%= link_to "Link1", "/path1"  %></li>
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Account
+                  <b class="caret"></b>
+                </a>
+                <% if user_signed_in? %>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'My Page', '/account/edit' %></li>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+                  </ul>
+                <% else %>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'Sign in with Facebook', user_omniauth_authorize_path(:facebook) %></li>
+                  </ul>
+                <% end %>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
