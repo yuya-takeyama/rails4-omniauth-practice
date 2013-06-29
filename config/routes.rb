@@ -1,4 +1,6 @@
 Rails4OmniauthPractice::Application.routes.draw do
+  resources :artists
+
   resources :albums
 
   devise_for :users, :path => 'account', :controllers => { :omniauth_callbacks => "account/omniauth_callbacks" }
